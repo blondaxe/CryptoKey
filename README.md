@@ -6,3 +6,4 @@
 
 ### Innovation
 - Stocker les métadonnées de la KEY (isOpen) avec IPFS et pas la blockchain pour ne pas payer les fees mais garder sécurité
+- Obtenir les infos avec arduino grâce à un event dans le smart contact ??
