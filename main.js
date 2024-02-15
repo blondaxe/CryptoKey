@@ -3,24 +3,24 @@
 async function connectMetaMask() {
   try {
     if (typeof window.ethereum == "undefined") {
-      alert("Meta Mask n'est pas installé");
+		alert("Meta Mask n'est pas installé");
 
-      return null
+      	return null
     } else {
-      const account = await window.ethereum.request({ method: "eth_requestAccounts" });
-
-      if (account.length <= 0) {
-        return null
-      } else {
-        const messagesDiv = document.getElementById('messages');
+      	const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+		const account = accounts[0]  
+    if (account.length <= 0) {
+    	return null
+    } else {
+    	const messagesDiv = document.getElementById('messages');
         messagesDiv.textContent = "Vous êtes connecté avec l'adresse : " + account;
 
         return account
-      }
     }
-  } catch (error) {
-    return null
-  }
+    }
+  	} catch (error) {
+    	return null
+  	}
 }
 
 const account = await connectMetaMask()
@@ -604,7 +604,7 @@ const contractAddress = "0x053FE8d95475754E50F0D5A12bAA70a850f85130"; // Remplac
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contract = new ethers.Contract(contractAddress, abi, signer);
-const accountAddress = account.join('');
+const accountAddress = account
 
 const createNFTForm = document.getElementById("createNFTForm");
 const transferNFTForm = document.getElementById("transferNFTForm");
